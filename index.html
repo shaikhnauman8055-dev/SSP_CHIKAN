@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SSP चिकन - ताजा और स्वच्छ चिकन दैनिक कटाई</title>
+    <meta name="description" content="SSP चिकन भारत में ताजा, स्वच्छ चिकन दैनिक कटाई प्रदान करता है। पूर्ण चिकन, आधा चिकन, करी कट, बोनलेस, लीवर और गिजर्ड के लिए WhatsApp के माध्यम से ऑर्डर करें। सर्वोत्तम स्थानीय मूल्य, होम डिलीवरी उपलब्ध।">
+    <meta name="keywords" content="SSP चिकन, ताजा चिकन, दैनिक कटाई चिकन, स्वच्छ चिकन, भारत में चिकन की दुकान, WhatsApp ऑर्डर चिकन, चिकन डिलीवरी">
+    <meta name="author" content="SSP चिकन">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        header {
+            background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 5px;
+            transition: 0.3s;
+        }
+        section {
+            padding: 100px 20px 80px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            color: white;
+            text-align: center;
+            padding: 200px 20px;
+            border-radius: 20px;
+            margin: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: slideIn 1.5s ease-out;
+        }
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        #hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        #hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #dc3545, #b02a37);
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 50px;
+            margin: 10px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(220,53,69,0.3);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(220,53,69,0.4);
+        }
+        .btn-whatsapp {
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            box-shadow: 0 4px 15px rgba(37,211,102,0.3);
+        }
+        .btn-whatsapp:hover {
+            box-shadow: 0 6px 20px rgba(37,211,102,0.4);
+        }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #dc3545;
+            position: relative;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(45deg, #dc3545, #b02a37);
+            border-radius: 2px;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .product-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .product-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+        .product-card .content {
+            padding: 25px;
+        }
+        .product-card h3 {
+            color: #dc3545;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+        .product-card p {
+            color: #7f8c8d;
+            margin-bottom: 15px;
+        }
+        .product-card .price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #28a745;
+        }
+        .rate-table {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            margin: 50px auto;
+            max-width: 800px;
+        }
+        .rate-table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .rate-table th, .rate-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .rate-table th {
+            background: #dc3545;
+            color: white;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .feature {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-5px);
+        }
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .contact-info {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin: 50px auto;
+            max-width: 600px;
+            text-align: center;
+        }
+        .contact-info p {
+            margin: 10px 0;
+            font-size: 1.1rem;
+        }
+        .contact-info a {
+            color: #dc3545;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        #map {
+            height: 300px;
+            border-radius: 15px;
+            margin-top: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        #whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(45deg, #25D366, #128C7E);
+            color: white;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 28px;
+            box-shadow: 0 5px 20px rgba(37,211,102,0.4);
+            z-index: 1000;
+            transition: transform 0.3s ease;
+        }
+        #whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        footer {
+            background: linear-gradient(135deg, #343a40 0%, #495057 100%);
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        .footer-links a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                background: linear-gradient(135deg, #dc3545 0%, #b02a37 100%);
+                padding: 20px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+            .product-grid {
+                grid-template-columns: 1fr;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+            #hero h1 {
+                font-size: 2rem;
+            }
+            #hero {
+                padding: 150px 20px;
+            }
+            .rate-table {
+                padding: 20px;
+            }
+            .rate-table table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">SSP चिकन</div>
+            <ul id="nav-menu">
+                <li><a href="#hero">होम</a></li>
+                <li><a href="#about">हमारे बारे में</a></li>
+                <li><a href="#rates">आज की दरें</a></li>
+                <li><a href="#contact">संपर्क</a></li>
+            </ul>
+            <div class="hamburger" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <h1>ताजा और स्वच्छ चिकन – दैनिक कटाई</h1>
+        <p>स्वादिष्ट और स्वास्थ्यप्रद ताजा चिकन | Tasty and Healthy Fresh Chicken</p>
+        <a href="#contact" class="btn">WhatsApp पर ऑर्डर करें</a>
+        <a href="#rates" class="btn">आज की दर प्राप्त करें</a>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">SSP चिकन के बारे में</h2>
+        <p>SSP चिकन भारत में आपका विश्वसनीय स्थानीय ताजा चिकन की दुकान है, जो हाइजेनिक, दैनिक कटाई वाला चिकन प्रदान करने के लिए समर्पित है। हम सुनिश्चित करते हैं कि हर टुकड़ा ताजा, सुरक्षित हो और आपके दरवाजे पर सावधानी से पहुंचाया जाए।</p>
+        <p>हमारे यहां रोजाना कटाई वाला स्वच्छ और हाइजेनिक चिकन मिलता है। स्थानीय विश्वसनीय व्यवसाय। | Daily cut hygienic chicken available here. Trusted local business.</p>
+    </section>
+
+
+
+    <section id="rates">
+        <h2 class="section-title">आज की चिकन दरें</h2>
+        <div class="rate-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>उत्पाद</th>
+                        <th>प्रति किग्रा मूल्य</th>
+                        <th>उपलब्धता</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>पूर्ण चिकन</td>
+                        <td>₹350</td>
+                        <td>उपलब्ध</td>
+                    </tr>
+                    <tr>
+                        <td>आधा चिकन</td>
+                        <td>₹360</td>
+                        <td>उपलब्ध</td>
+                    </tr>
+                    <tr>
+                        <td>चिकन करी कट</td>
+                        <td>₹380</td>
+                        <td>उपलब्ध</td>
+                    </tr>
+                    <tr>
+                        <td>चिकन बोनलेस</td>
+                        <td>₹400</td>
+                        <td>उपलब्ध</td>
+                    </tr>
+                    <tr>
+                        <td>चिकन लीवर और गिजर्ड</td>
+                        <td>₹250</td>
+                        <td>उपलब्ध</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p style="text-align: center; margin-top: 20px; color: #7f8c8d;">दरें दैनिक अपडेट की जाती हैं। थोक ऑर्डर के लिए हमसे संपर्क करें।</p>
+        </div>
+    </section>
+
+    <section id="trust">
+        <h2 class="section-title">SSP चिकन क्यों चुनें</h2>
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">🐔</div>
+                <h3>100% ताजा चिकन</h3>
+                <p>दैनिक कटाई, स्रोत से ताजा।</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🧼</div>
+                <h3>हाइजेनिक कटाई</h3>
+                <p>स्वच्छ और सुरक्षित तैयारी।</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💰</div>
+                <h3>सर्वोत्तम स्थानीय मूल्य</h3>
+                <p>किफायती और प्रतिस्पर्धी दरें।</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title">हमसे संपर्क करें</h2>
+        <div class="contact-form" style="background: white; padding: 30px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin: 50px auto; max-width: 600px;">
+            <h3 style="text-align: center; color: #dc3545; margin-bottom: 20px;">हमें संदेश भेजें</h3>
+            <form id="whatsapp-form">
+                <input type="text" id="name" placeholder="आपका नाम" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                <input type="text" id="product" placeholder="उत्पाद (उदा., पूर्ण चिकन)" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                <input type="number" id="quantity" placeholder="मात्रा (किग्रा)" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                <select id="option" required style="width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; font-size: 1rem;">
+                    <option value="">डिलीवरी/पिकअप चुनें</option>
+                    <option value="Delivery">डिलीवरी</option>
+                    <option value="Pickup">पिकअप</option>
+                </select>
+                <button type="submit" class="btn btn-whatsapp" style="width: 100%; margin-top: 20px;">WhatsApp के माध्यम से भेजें</button>
+            </form>
+        </div>
+        <div class="contact-info">
+            <p><strong>दुकान का नाम:</strong> SSP चिकन</p>
+            <p><strong>फोन:</strong> <a href="tel:+919021363194">+91 9021363194</a></p>
+            <p><strong>WhatsApp:</strong> <a href="https://wa.me/9021363194" target="_blank">+91 9021363194</a></p>
+            <p><strong>पता:</strong> कटगांव, जिला लातूर, भारत</p>
+            <p><strong>व्यापारिक घंटे:</strong> सुबह 8 बजे - शाम 8 बजे रोज</p>
+        </div>
+        <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.0000!2d76.0000!3d18.0000!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTjCsDAwJzAwLjAiTiA3NsKwMDAnMDAuMCJF!5e0!3m2!1sen!2sin!4v1630000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy"></iframe>
+    </section>
+
+    <a href="https://wa.me/9021363194?text=Hi%20SSP%20Chikan,%20I%20have%20an%20inquiry." id="whatsapp-float" target="_blank">💬</a>
+
+    <footer>
+        <div class="footer-links">
+            <a href="#hero">होम</a>
+            <a href="#about">हमारे बारे में</a>
+            <a href="#rates">दरें</a>
+            <a href="#contact">संपर्क</a>
+        </div>
+        <p>&copy; 2023 SSP चिकन. सर्वाधिकार सुरक्षित।</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('nav-menu');
+            menu.classList.toggle('show');
+        }
+
+        document.getElementById('whatsapp-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const product = document.getElementById('product').value;
+            const quantity = document.getElementById('quantity').value;
+            const option = document.getElementById('option').value;
+            const message = `Hi SSP Chikan, I want to order ${product}. Name: ${name} Quantity: ${quantity}kg Delivery/Pickup: ${option}`;
+            const whatsappUrl = `https://wa.me/9021363194?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        });
+    </script>
+</body>
+</html>
